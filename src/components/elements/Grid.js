@@ -2,27 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledGrid = styled.div`
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px h1 {
-        font-family: 'Abel', sans-serif;
+    h1 {
+        font-family: Oswald, sans-serif;
         font-size: 42px;
-
-        @media screen and (max-width: 768px) {
-            font-size: 22px;
-        }
     }
 `;
 
 const StyledGridContent = styled.div`
-    display: grid;
-    grid-template-columnt: repeat(5, minmax(100px, 1fr));
-    grid-gap: 40px;
-    position: relative;
-
-    .grid-element {
-        animation: animateGrid 0.5s;
-    }
+display: grid;
+grid-template-columns: auto auto auto auto;
 
     @keyframes animateGrid {
         from {
@@ -53,9 +41,7 @@ const StyledGridContent = styled.div`
 const Grid = ({ header, children }) => {
     const renderElements = () => {
         const gridElements = children.map((element, i) => (
-            <div key={i} className='rmdb-grid-element'>
-                {element}
-            </div>
+            <div key={i}>{element}</div>
         ));
         return gridElements;
     };

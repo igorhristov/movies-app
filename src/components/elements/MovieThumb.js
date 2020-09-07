@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledMovieThumb = styled.div`
-    width: 100%;
-    height: auto;
-    transition: all 0.3s;
-    object-fit: cover;
-    border-radius: 20px;
+margin: 0 20px 20px 0;
+background: #fff;
+max-height: 380px;
+animation: animateGrid 0.5s;
+overflow: hidden;
+
 
     .clickable {
         cursor: pointer;
@@ -15,11 +16,23 @@ const StyledMovieThumb = styled.div`
     .clickable:hover {
         opacity: 0.8;
     }
+
+    
+@keyframes animateGrid {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  &:nth-child(4n + 4) {
+    margin-right: 0;
 `;
 
 const MovieThumb = ({ image, movieId, clickable }) => {
     return (
-        <StyledMovieThumb className='rmdb-moviethumb'>
+        <StyledMovieThumb>
             {clickable ? (
                 <img className='clickable' src={image} alt='moviethumb' />
             ) : (

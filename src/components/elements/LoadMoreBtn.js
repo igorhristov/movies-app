@@ -23,6 +23,10 @@ const StyledLoadMoreBtn = styled.button`
     }
 `;
 
-const LoadMoreBtn = () => <StyledLoadMoreBtn>Load More</StyledLoadMoreBtn>;
+const LoadMoreBtn = ({ text, callback }) => (
+    <StyledLoadMoreBtn type='button' onClick={callback}>
+        {text}
+    </StyledLoadMoreBtn>
+);
 
 export default LoadMoreBtn;
