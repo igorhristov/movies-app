@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 
 import {
-    API_KEY,
-    API_URL,
     IMAGE_BASE_URL,
     POSTER_SIZE,
     BACKDROP_SIZE,
+    POPULAR_BASE_POINT,
+    SEARCH_BASE_URL,
 } from '../helpers/config';
 
 import HeroImage from './elements/HeroImage';
@@ -32,13 +32,19 @@ const Home = () => {
     ] = useHomeFetch();
     const [searchTerm, setSearchterm] = useState('');
 
+    const searchMovies = (search) => {
+        const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_POINT;
+
+        setSearchterm(search);
+
+        fetchMovies(endpoint);
+    };
+
     const loadMoreMovies = () => {
-        const searchEndpoing = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}$page=${
+        const searchEndpoing = `${SEARCH_BASE_URL}${searchTerm}$page=${
             currentPage + 1
         }`;
-        const popularEndpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${
-            currentPage + 1
-        }`;
+        const popularEndpoint = `${POPULAR_BASE_POINT}&page=${currentPage + 1}`;
 
         const endpoint = searchTerm ? searchEndpoing : popularEndpoint;
 
@@ -49,12 +55,15 @@ const Home = () => {
     if (!movies[0]) return <Spinner />;
     return (
         <Fragment>
-            <HeroImage
-                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
-                title={heroImage.original_title}
-                text={heroImage.overview}
-            />
-            <SearchBar />
+            {!searchTerm && (
+                <HeroImage
+                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+                    title={heroImage.original_title}
+                    text={heroImage.overview}
+                />
+            )}
+
+            <SearchBar callback={searchMovies} />
             <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
                 {movies.map((movie) => (
                     <MovieThumb
