@@ -3,43 +3,48 @@ import styled from 'styled-components';
 import './SearchBar.styles.css';
 
 const StyledSearchBar = styled.div`
-    max-width: 1080px;
-    height: 125px;
-    margin: 0 auto;
-    position: relative;
-    padding: 30px 0;
+    width: 100%;
+    height: 105px;
+    background: #1c1c1c;
+    padding: 25px 20px 0px 20px;
     box-sizing: border-box;
     color: #fff;
 `;
 const StyledSearchBarContent = styled.div`
-    max-width: 1080px;
-    width: 70%;
-
+    max-width: 1280px;
+    width: 100%;
     height: 55px;
-    float: left;
-    left: 320px;
-    border-bottom: 2px solid #757575;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-
+    background: #353535;
+    margin: 0 auto;
+    border-radius: 40px;
     position: relative;
-    color: #757575;
-
-    input {
-        font-family: Oswald, sans-serif;
-
-        font-size: 38px;
+    color: #fff;
+    .fa-search {
         position: absolute;
         left: 20px;
-        top: 7px;
+        top: 12px;
+        color: #fff;
+        z-index: 1000;
+    }
+    input {
+        font-family: 'Abel', sans-serif;
+        font-size: 28px;
+        position: absolute;
+        left: 0px;
+        margin: 8px 0;
+        padding: 0 0 0 60px;
         border: 0;
+        width: 95%;
         background: transparent;
         height: 40px;
-        color: #757575;
-    }
-    input:focus {
-        outline: none;
+        color: #fff;
+        box-sizing: border-box;
+        :focus {
+            outline: none;
+        }
+        @media screen and (max-width: 720px) {
+            font-size: 28px;
+        }
     }
 `;
 

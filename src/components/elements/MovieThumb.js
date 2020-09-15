@@ -3,32 +3,32 @@ import { Link } from '@reach/router';
 import styled from 'styled-components';
 
 const StyledMovieThumb = styled.div`
-margin: 0 20px 20px 0;
-background: #fff;
-max-height: 380px;
-animation: animateGrid 0.5s;
-overflow: hidden;
-
-
-    .clickable {
-        cursor: pointer;
+    img {
+        width: 100%;
+        height: auto;
+        /* max-height: 350px; */
+        transition: all 0.3s;
+        object-fit: cover;
+        border-radius: 20px;
+        :hover {
+            opacity: 0.8;
+        }
+        /* @media screen and (max-width: 1024px) {
+      height: 300px;
     }
-
-    .clickable:hover {
-        opacity: 0.8;
+    @media screen and (max-width: 768px) {
+      height: 350px;
     }
-
-    
-@keyframes animateGrid {
-    from {
-      opacity: 0;
+    @media screen and (max-width: 600px) {
+      max-height: 300px;
     }
-    to {
-      opacity: 1;
+    @media screen and (max-width: 375px) {
+      max-height: 450px;
+    } */
+        .clickable {
+            cursor: pointer;
+        }
     }
-  }
-  &:nth-child(4n + 4) {
-    margin-right: 0;
 `;
 
 const MovieThumb = ({ image, movieId, clickable }) => {
