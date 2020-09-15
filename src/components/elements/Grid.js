@@ -9,8 +9,8 @@ const StyledGrid = styled.div`
 `;
 
 const StyledGridContent = styled.div`
-display: grid;
-grid-template-columns: auto auto auto auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 
     @keyframes animateGrid {
         from {
@@ -39,17 +39,11 @@ grid-template-columns: auto auto auto auto;
 `;
 
 const Grid = ({ header, children }) => {
-    const renderElements = () => {
-        const gridElements = children.map((element, i) => (
-            <div key={i}>{element}</div>
-        ));
-        return gridElements;
-    };
-
+  
     return (
         <StyledGrid>
             <h1>{header}</h1>
-            <StyledGridContent>{renderElements()}</StyledGridContent>
+            <StyledGridContent>{children}</StyledGridContent>
         </StyledGrid>
     );
 };
