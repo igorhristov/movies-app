@@ -1,4 +1,7 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 import NoImage from '../../images/NoImage.svg';
@@ -134,6 +137,11 @@ const MovieInfo = ({ movie }) => {
             </div>
         </StyledMovieInfo>
     );
+};
+
+MovieInfo.propTypes = {
+    movie: PropTypes.object,
+    directors: PropTypes.array,
 };
 
 export default MovieInfo;

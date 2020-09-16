@@ -46,7 +46,7 @@ const StyledTMDBLogo = styled.img`
     }
 `;
 
-const Header = (props) => {
+const Header = () => {
     return (
         <StyledHeader>
             <div className='header-content'>
