@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const StyledLoadMoreBtn = styled.button`
@@ -28,5 +30,10 @@ const LoadMoreBtn = ({ text, callback }) => (
         {text}
     </StyledLoadMoreBtn>
 );
+
+LoadMoreBtn.propTypes = {
+    text: PropTypes.string,
+    callback: PropTypes.func,
+};
 
 export default LoadMoreBtn;

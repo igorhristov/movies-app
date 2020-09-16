@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import './SearchBar.styles.css';
+import PropTypes from 'prop-types';
 
 const StyledSearchBar = styled.div`
     width: 100%;
@@ -64,26 +64,22 @@ const SearchBar = ({ callback }) => {
     };
 
     return (
-        <div className='rmdb-searchbar'>
-            <div className='tmdb-logo'>
-                <i className='fa fa-search rmdb-tmdb'></i>
-                <img
-                    className='rmdb-tmdb'
-                    src='/images/tmdb_logo.png'
-                    alt='tmdb-logo'
-                />
-            </div>
-            <div className='rmdb-searchbar-content'>
+        <StyledSearchBar>
+            <StyledSearchBarContent>
+                <i className='fa fa-search'></i>
                 <input
                     type='text'
-                    className='rmdb-searchbar-input'
                     placeholder='Search Movie Title...'
                     onChange={doSearch}
                     value={state}
                 />
-            </div>
-        </div>
+            </StyledSearchBarContent>
+        </StyledSearchBar>
     );
+};
+
+SearchBar.propTypes = {
+    callback: PropTypes.func,
 };
 
 export default SearchBar;

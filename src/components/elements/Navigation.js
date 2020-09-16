@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
+import PropTypes from 'prop-types';
+
 const StyledNavigation = styled.div`
     display: flex;
     align-items: center;
@@ -38,6 +40,10 @@ const Navigation = ({ movie }) => {
             </div>
         </StyledNavigation>
     );
+};
+
+Navigation.propTypes = {
+    movie: PropTypes.string,
 };
 
 export default Navigation;

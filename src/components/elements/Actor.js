@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 import NoImage from '../../images/NoImage.svg';
@@ -47,6 +49,10 @@ const Actor = ({ actor }) => {
             <span className='actor-character'>{actor.character}</span>
         </StyledActor>
     );
+};
+
+Actor.propTypes = {
+    actor: PropTypes.object,
 };
 
 export default Actor;
